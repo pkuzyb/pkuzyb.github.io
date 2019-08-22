@@ -1,0 +1,28 @@
+body {
+	font-family: Arial, Helvetical, sans-serif;
+}
+
+td.title {
+	font-size: 12pt;
+	color: dark-blue;
+               vertical-align: bottom;
+}
+
+td.sidebar {
+	font-size: 15pt;
+               line-height: 1.7em;
+               vertical-align: top;
+}
+
+td.content{   vertical-align:  text-top;
+     text-align: justify;
+    font-size: 14pt;
+   }
+
+ul{   padding-left:15px;
+}
+
+a:visited {  color: blue; text-decoration: none}
+a:hover {  color: red; text-decoration: none}
+a:link {  color: blue; text-decoration: none}
+
