@@ -14,8 +14,8 @@ td.sidebar {
                vertical-align: top;
 }
 
-td.content{   vertical-align:  text-top;
-     text-align: justify;
+td.content{  
+     text-align: top-justify;
     font-size: 14pt;
    }
 
