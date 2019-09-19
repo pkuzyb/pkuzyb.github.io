@@ -9,7 +9,7 @@ td.title {
 }
 
 td.sidebar {
-	font-size: 17pt;
+	font-size: 16pt;
                line-height: 1.7em;
                vertical-align: top;
 }
@@ -19,7 +19,7 @@ td.content{   vertical-align:  text-top;
     font-size: 16pt;
    }
 
-ul{   padding-left:17px;
+ul{   padding-left:15px;
 }
 
 a:visited {  color: blue; text-decoration: none}
