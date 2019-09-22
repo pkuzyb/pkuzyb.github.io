@@ -24,6 +24,7 @@ a:hover {  color: red; text-decoration: none}
 a:link {  color: blue; text-decoration: none}
 
 ul{   padding-left:15px;
-	line-height: 1.5
+	font-size: 14.5pt;
+	line-height: 1.2
 }
 
