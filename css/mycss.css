@@ -25,6 +25,12 @@ td.content{  vertical-align:  text-top;
     font-size: 14.5pt;
    }
 
+p{  vertical-align:  text-top;
+     text-align: justify;
+    font-size: 14.5pt;
+     width:600px; 
+   }
+
 a:visited {  color: blue; text-decoration: none}
 a:hover {  color: red; text-decoration: none}
 a:link {  color: blue; text-decoration: none}
