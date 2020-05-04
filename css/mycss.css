@@ -25,13 +25,11 @@ td.content{  vertical-align:  text-top;
     font-size: 14.5pt;
    }
 
-p {
-  border-bottom:1px dotted;
-  margin-left:auto;
-  margin-right:auto;
-  text-align:center;
+div {
+  text-align:justify;
   width: 600px; 
-}  
+}
+
 
 a:visited {  color: blue; text-decoration: none}
 a:hover {  color: red; text-decoration: none}
