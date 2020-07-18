@@ -1,6 +1,6 @@
 table.center {
     width:850px; 
-    margin-left:10%; 
+    margin-left:7%; 
     margin-right:20%;
   }
 
@@ -9,7 +9,7 @@ body {
 }
 
 td.title {
-	font-size: 16.5pt;
+	font-size: 16pt;
 	color: dark-blue;
                vertical-align: bottom;
 }
