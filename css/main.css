@@ -1,7 +1,7 @@
 table.center {
     width:850px; 
-    margin-left:5%; 
-    margin-right:15%;
+    margin-left:10%; 
+    margin-right:20%;
   }
 
 body {
@@ -15,7 +15,7 @@ td.title {
 }
 
 td.sidebar {
-	font-size: 15pt;
+	font-size: 14pt;
                line-height: 1.7em;
                vertical-align: top;
 }
