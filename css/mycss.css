@@ -9,20 +9,20 @@ body {
 }
 
 td.title {
-	font-size: 18pt;
+	font-size: 17pt;
 	color: dark-blue;
                vertical-align: bottom;
 }
 
 td.sidebar {
-	font-size: 16pt;
+	font-size: 15pt;
                line-height: 1.7em;
                vertical-align: top;
 }
 
 td.content{  vertical-align:  text-top;
      text-align: justify;
-    font-size: 14.5pt;
+    font-size: 13.5pt;
    }
 
 div {
@@ -36,7 +36,7 @@ a:hover {  color: red; text-decoration: none}
 a:link {  color: blue; text-decoration: none}
 
 ul{   padding-left:15px;
-	font-size: 14.5pt;
+	font-size: 13.5pt;
 	line-height: 1.2
 }
 
