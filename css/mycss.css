@@ -16,7 +16,7 @@ td.title {
 
 td.sidebar {
 	font-size: 14pt;
-               line-height: 1.2em;
+               line-height: 1.4em;
                vertical-align: top;
 }
 
@@ -39,7 +39,7 @@ a:hover {  color: red; text-decoration: none}
 a:link {  color: blue; text-decoration: none}
 
 ul{   padding-left:15px;
-	font-size: 14.5pt;
+	font-size: 13.5pt;
 	line-height: line-height: 1.5em;
 }
 
