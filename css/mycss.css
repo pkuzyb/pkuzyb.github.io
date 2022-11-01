@@ -33,13 +33,6 @@ div {
   font-size: 12.5pt;
 }
 
-@media only screen and (max-width: 481px) {
-
-
-  td.sidebar { font-size: 12pt; width="50px"}
-  td.title { font-size: 13pt; width="500px"}
-  td.content { font-size: 10pt;width="500px" }
-}
 
 
 a:visited {  color: blue; text-decoration: none}
@@ -51,4 +44,10 @@ ul{   padding-left:15px;
 	line-height: 1.1em;
 }
 
+@media only screen and (max-width: 481px) {
 
+
+  td.sidebar { font-size: 12pt; width="50px"}
+  td.title { font-size: 13pt; width="500px"}
+  td.content { font-size: 10pt;width="500px" }
+}
