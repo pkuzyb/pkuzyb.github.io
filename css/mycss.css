@@ -48,6 +48,7 @@ ul{   padding-left:15px;
 
 
   td.sidebar { font-size: 12pt; width="50px"}
-  td.title { font-size: 13pt; width="500px"}
-  td.content { font-size: 10pt;width="500px" }
+  td.title { font-size: 13pt; width="350px"}
+  td.content { font-size: 10pt;width="350px" }
+   table.center {font-size: 10pt;width="400px"}
 }
