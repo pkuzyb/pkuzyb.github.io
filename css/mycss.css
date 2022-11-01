@@ -54,7 +54,7 @@ ul{   padding-left:15px;
   width: device-width;
 }
 
-@media screen and (max-width: 480px) {
+@media only screen and (max-width: 481px) {
 
   body {
     font-size: 16px;
