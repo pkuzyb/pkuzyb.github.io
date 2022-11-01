@@ -12,12 +12,16 @@ body {
   body { font-size: 20pt; }
 }
 
-td.title {
+td.name {
 	font-size: 12pt;
 	color: dark-blue;
                vertical-align: bottom;
 }
-
+td.title {
+	font-size: 15pt;
+	color: dark-blue;
+               vertical-align: top;
+}
 td.sidebar {
 	font-size: 14pt;
                line-height: 1.5em;
