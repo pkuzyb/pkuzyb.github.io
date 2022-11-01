@@ -46,4 +46,9 @@ ul{   padding-left:15px;
 	line-height: 1.1em;
 }
 
+@media only screen and (max-width: 600px) {
+  td.sidebar { font-size: 20pt; }
+  td.title { font-size: 20pt; }
+  td.content { font-size: 15pt; }
+}
 
