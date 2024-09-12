@@ -1,0 +1,249 @@
+
+
+table.center {
+    width:950px; 
+    margin-left:9%; 
+    margin-right:25%;
+  }
+
+p {
+    margin: 8px 0;
+  }
+
+p.abovefigure{text-align: center;    margin-right: 29%;margin-left: 29%;}
+p.belowfigure{text-align: center; margin-right: 12%;margin-left: 12%;font-size: 12pt;}
+p.subsubtitle{font-size: 13.5pt;font-style: italic}
+
+body {
+	font-family: Arial;
+}
+
+iframe {
+ width:650;
+ height:690;}
+
+img.flyer {
+style:float: center;
+ width:80%;
+ height:90%;}
+
+img.tswn {
+style:float: center;
+ width:57%;
+ height:22%;}
+	
+img.lexnei {
+style:float: center;
+ width:70%;
+ height:50%;}
+ 
+ img.voicing {
+style:float: center;
+ width:75%;
+ height:40%;}
+
+img.jyutping {
+style:float: center;
+ width:90%;
+ height:45%;}
+
+	 
+img.rectMRI {
+style:float: center;
+ width:70%;
+ height:50%;}
+
+img.mrigest {
+style:float: center;
+ width:100%;
+ height:43%;}
+
+ img.hor {
+style:float: center;
+ width:80%;
+ height:52%;}
+
+ img.ver {
+style:float: center;
+ width:50%;
+ height:73%;}
+
+ img.nuosu {
+style:float: center;
+ width:50%;
+ height:45%;}
+
+hr.hrzl {width:720;
+}
+
+td.title {
+	font-size: 15pt;
+         vertical-align: top;
+         height:50px;
+         width: 630px;
+}
+td.name {
+	font-size: 15pt;
+         vertical-align: top;
+         height:50px;
+         width: 300px;
+}
+td.sidebar {
+	font-size: 12.5pt;
+         letter-spacing: 0.8px;
+         line-height: 1.4em;
+         font-weight: 300;
+         font-family: monospace;
+         vertical-align: top;
+         height:400px;
+         width: 300px;
+}
+
+td.content{  vertical-align:  text-top;
+     text-align: justify;
+    font-size: 12.5pt;
+	line-height: 1.1em;
+    height: 700px;
+    width:300px; 
+   }
+
+
+
+a:visited {  color: #335acc; text-decoration: none}
+a:hover {  color: red; text-decoration: none}
+a:link {  color: #335acc; text-decoration: none}
+a.homelinks:link {  color: #335acc; text-decoration: none; word-spacing: 2px; letter-spacing: 1.2px;font-family: Helvetica; font-size: 12pt;}
+
+ul{   padding-left:15px;
+	font-size: 12.5pt;
+	line-height: 1.1em;
+}
+
+div.scrollable {
+    Width:100%; 
+    height: 100%;
+    margin: 0;
+    padding-right: 23vw;
+    overflow-y: auto;
+    scrollbar-width: none;
+border: 2px 
+}
+
+	 
+::-webkit-scrollbar {
+    display: none;
+}
+
+@media only screen 
+    and (max-width: 400px) 
+    and (-webkit-device-pixel-ratio: 2){
+hr.hrzl {width:265;
+}
+p.subsubtitle{font-size: 8.5pt;}
+  table.center {
+    width:360px; 
+    margin-left:0%; 
+    margin-right:10%;
+  }
+td.name {
+	font-size: 12pt;
+	color: dark-blue;
+         vertical-align: top;
+    width:165px; 
+    height: 50px;
+}
+td.sidebar {
+letter-spacing: 0px;
+	font-size: 7.2pt;
+     line-height: 1.4em;
+     vertical-align: top;
+    font-family: Arial;
+    width:165px; 
+    height: 400px;
+}
+td.title {
+    font-size: 11pt;
+    color: dark-blue;
+    vertical-align: top;
+    width:265px; 
+    height: 50px;
+}
+ td.content{  vertical-align:  text-top;
+     text-align: justify;
+    font-size: 8pt;
+   line-height: 1.1em;
+    width:250px; 
+    height: 450px;
+   }
+a.homelinks:link {  color: #335acc; text-decoration: none; word-spacing: 1px; letter-spacing: 0.5px;font-family: Helvetica; font-size: 7pt}
+
+iframe {
+ width:260;
+ height:400;}
+	
+img.flyer {
+style:float: center;
+ width:90%;
+ height:55%;}
+ 
+img.voicing {
+style:float: center;
+ width:90%;
+ height:26%;}
+
+img.tswn {
+style:float: center;
+ width:75%;
+ height:20%;}
+	 
+img.jyutping {
+style:float: center;
+ width:100%;
+ height:28%;}
+	 
+ img.lexnei {
+style:float: center;
+ width:75%;
+ height:30%;}
+
+img.rectMRI {
+style:float: center;
+ width:85%;
+ height:35%;}
+
+img.mrigest {
+style:float: center;
+ width:100%;
+ height:26%;}
+
+ img.hor {
+style:float: center;
+ width:95%;
+ height:35%;}
+
+ img.ver {
+style:float: center;
+ width:75%;
+ height:65%;}
+
+	 
+img.nuosu {
+style:float: center;
+ width:70%;
+ height:40%;}
+
+p.abovefigure{text-align: center;    margin-right: 17%;margin-left: 17%;}
+p.belowfigure{text-align: center; margin-right: 8%;margin-left: 8%;font-size: 7pt;}
+div.scrollable {
+    Width:100%; 
+    height: 100%;
+    margin: 0;
+    padding-right: 2vw;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+}
+
+
+
+
