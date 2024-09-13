@@ -10,6 +10,13 @@ p {
     margin: 8px 0;
   }
 
+
+p.nuosu {text-align: center;
+    margin-top: 0; margin-bottom: -5px;
+    font-size:18pt;
+    margin-right: 29%;margin-left: 29%;
+  }
+
 p.abovefigure{text-align: center;    margin-right: 29%;margin-left: 29%;}
 p.belowfigure{text-align: center; margin-right: 12%;margin-left: 12%;font-size: 12pt;}
 p.subsubtitle{font-size: 13.5pt;font-style: italic}
@@ -231,6 +238,12 @@ img.nuosu {
 style:float: center;
  width:70%;
  height:40%;}
+
+p.nuosu {text-align: center;
+    margin-top: 0; margin-bottom: -5px;
+    font-size:10pt;
+    margin-right: 29%;margin-left: 29%;
+  }
 
 p.abovefigure{text-align: center;    margin-right: 17%;margin-left: 17%;}
 p.belowfigure{text-align: center; margin-right: 8%;margin-left: 8%;font-size: 7pt;}
