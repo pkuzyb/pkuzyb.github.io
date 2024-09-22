@@ -89,36 +89,42 @@ style:float: center;
 hr.hrzl {width:675px;
 }
 
-td.title {
-	font-size: 15pt;
-         vertical-align: top;
-         height:50px;
-         width: 675px;
-}
+
 td.name {
 	font-size: 15pt;
          vertical-align: top;
          height:50px;
          width: 300px;
 }
+
+
 td.sidebar {
-	font-size: 12.5pt;
+         vertical-align: top;
+	 padding-top: 0px;
+	 font-size: 12.5pt;
          letter-spacing: 1px;
          line-height: 1.4em;
          font-weight: 300;
          font-family: monospace;
-         vertical-align: top;
-         height:400px;
+         height:700px;
          width: 300px;
 }
 
-td.content{  vertical-align:  text-top;
-     text-align: justify;
-    font-size: 12.5pt;
-	line-height: 1.1em;
-    height: 700px;
-    Width:675px; 
-   }
+td.title {
+	font-size: 15pt;
+         vertical-align: top;
+         height:50px;
+         width: 675px;
+}
+
+td.content{ 
+ 	   padding-top: 0px;
+    	   text-align: justify;
+    	   font-size: 12.5pt;
+    	   line-height: 1.1em;
+    	    height: 700px;
+    	    width:675px; 
+}
 
 
 
@@ -127,19 +133,19 @@ a:hover {  color: red; text-decoration: none}
 a:link {  color: #335acc; text-decoration: none}
 a.homelinks:link {  color: #335acc; text-decoration: none; word-spacing: 1px; letter-spacing: 1.2px;font-family: Helvetica; font-size: 12.5pt;}
 
-ul{   padding-left:15px;
-	font-size: 12.5pt;
-	line-height: 1.1em;
+ul{padding-left:15px;
+   font-size: 12.5pt;
+   line-height: 1.1em;
 }
 
 div.scrollable {
-    Width:100%; 
-    height: 100%;
-    margin: 0;
-    padding-right: 23vw;
-    overflow-y: auto;
-    scrollbar-width: none;
-border: 2px 
+   Width:100%; 
+   height: 100%;
+   margin: 0;
+   padding-right: 23vw;
+   overflow-y: auto;
+   scrollbar-width: none;
+   border: 2px 
 }
 
 	 
