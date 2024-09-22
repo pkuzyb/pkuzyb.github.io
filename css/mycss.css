@@ -180,18 +180,21 @@ letter-spacing: 0px;
     height: 400px;
 }
 td.title {
-    font-size: 11pt;
-    color: dark-blue;
-    vertical-align: top;
-    width:240px; 
+	  padding-top: 0px;
+  	  font-size: 11pt;
+  	  color: dark-blue;
+  	  vertical-align: top;
+  		  width:240px; 
     height: 50px;
 }
- td.content{  vertical-align:  text-top;
-     text-align: justify;
-    font-size: 8.8pt;
-   line-height: 1.1em;
-    width:240px; 
-    height: 450px;
+ td.content{  
+	  padding-top: 0px;
+	  vertical-align:  text-top;
+    	  text-align: justify;
+    	  font-size: 8.8pt;
+   	  line-height: 1.1em;
+  	  width:240px; 
+   	  height: 450px;
    }
 a.homelinks:link {  color: #335acc; text-decoration: none; word-spacing: 1px; letter-spacing: 0.5px;font-family: Helvetica; font-size: 7pt}
 
