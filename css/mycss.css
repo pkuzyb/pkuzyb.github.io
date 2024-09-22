@@ -111,19 +111,19 @@ td.sidebar {
 }
 
 td.title {
-	font-size: 15pt;
+	 font-size: 15pt;
          vertical-align: top;
          height:50px;
          width: 675px;
 }
 
 td.content{ 
- 	   padding-top: 0px;
-    	   text-align: justify;
-    	   font-size: 12.5pt;
-    	   line-height: 1.1em;
-    	    height: 700px;
-    	    width:675px; 
+ 	 padding-top: 0px;
+    	 text-align: justify;
+    	 font-size: 12.5pt;
+    	 line-height: 1.1em;
+    	 height: 700px;
+    	 width:675px; 
 }
 
 
@@ -184,8 +184,8 @@ td.title {
   	  font-size: 11pt;
   	  color: dark-blue;
   	  vertical-align: top;
-  		  width:240px; 
-    height: 50px;
+  	  width:240px; 
+          height: 50px;
 }
  td.content{  
 	  padding-top: 0px;
@@ -265,7 +265,7 @@ p.nuosu {text-align: center;
   }
 
 p.abovefigure{text-align: center;    margin-right: 13%;margin-left: 13%;}
-p.belowfigure{text-align: center; margin-right: 8%;margin-left: 8%;font-size: 7pt;}
+p.belowfigure{text-align: center; margin-right: 7%;margin-left: 7%;font-size: 7pt;}
 div.scrollable {
     Width:100%; 
     height: 100%;
