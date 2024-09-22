@@ -149,7 +149,7 @@ border: 2px
 
 @media only screen 
     and (max-width: 400px) {
-hr.hrzl {width: 80vw;
+hr.hrzl {width:240;
 }
 p.subsubtitle{font-size: 8.5pt;}
   table.center {
@@ -177,14 +177,14 @@ td.title {
     font-size: 11pt;
     color: dark-blue;
     vertical-align: top;
-    width: 80vw; 
+    width:240px; 
     height: 50px;
 }
  td.content{  vertical-align:  text-top;
      text-align: justify;
     font-size: 8.8pt;
    line-height: 1.1em;
-    Width:80vw; 
+    width:240px; 
     height: 450px;
    }
 a.homelinks:link {  color: #335acc; text-decoration: none; word-spacing: 1px; letter-spacing: 0.5px;font-family: Helvetica; font-size: 7pt}
