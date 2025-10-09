@@ -19,7 +19,7 @@ p.nuosu {text-align: center;
 
 p.abovefigure{text-align: center;    margin-right: 20%;margin-left: 20%;}
 p.belowfigure{text-align: center; margin-right: 11%;margin-left: 11%;font-size: 12pt;}
-p.subsubtitle{font-size: 13.5pt;font-style: italic}
+p.subsubtitle{font-size: 13.5pt;   font-family:  "Times New Roman", Georgia, serif;}
 
 body {
 	font-family: Arial;
@@ -209,7 +209,7 @@ style:float: center;
 img.annot {
 style:float: center;
  width:100%;
- height:30%;}
+ height:25%;}
  
 img.voicing {
 style:float: center;
