@@ -268,60 +268,48 @@ div.scrollable {
 @media only screen and (max-width: 800px) {
     .sidebar {
         position: relative;
-        width: 100%;
+        width: 40%;             
         height: auto;
-        border-right: none;
-        border-bottom: 2px solid #b7d3b2;
+        border-right: 2px solid #b7d3b2;
         text-align: center;
-        font-size: 14pt; /* slightly smaller for tablets */
+        font-size: 13pt;
     }
-    .sidebar a {
-        font-size: 14pt;
-        padding: 0.6rem 0.8rem;
-    }
-    .name {
-        font-size: 1.6rem; /* smaller title */
-        margin-bottom: 2rem;
-    }
+    .sidebar a { font-size: 13pt; padding: 0.6rem 0.8rem; }
+    .name { font-size: 1.4rem; margin-bottom: 1.5rem; }
+    
     .main {
-        margin-left: 0;
+        margin-left: 42%;
         padding: 1rem;
-        height: auto;
-        font-size: 1rem; /* slightly smaller main text */
+        height: 100vh;          /* allow vertical scroll */
+        font-size: 0.95rem;
+        overflow-x: hidden;     /* no horizontal scroll */
+        overflow-y: auto;       /* vertical scroll enabled */
     }
-    .main h2 {
-        font-size: 1.5rem;
-    }
-    .subtitle {
-        font-size: 1.1rem;
-    }
-    .subsubtitle {
-        font-size: 12pt;
-    }
-    .belowfigure {
-        font-size: 1rem;
-    }
-    .abovefigure {
-        font-size: 1.1rem;
-        margin-bottom: 1rem;
-    }
+    
+    .main h2 { font-size: 1.4rem; }
+    .subtitle { font-size: 1rem; }
+    .subsubtitle { font-size: 11pt; }
+    .belowfigure { font-size: 0.95rem; }
+    .abovefigure { font-size: 1rem; margin-bottom: 0.8rem; }
 }
 
 @media only screen and (max-width: 400px) {
-    /* iPhone / very small devices */
-    .sidebar a {
-        font-size: 7.5pt;
-        letter-spacing: 0px;
-        padding: 0.4rem 0.6rem;
-    }
-    .subsubtitle { font-size: 8pt; line-height: 1.1; }
-    .subtitle { font-size: 9pt; line-height: 1.1; }
+    .sidebar { width: 45%; font-size: 12pt; }
+    .sidebar a { font-size: 8pt; padding: 0.35rem 0.5rem; }
+    .name { font-size: 1.2rem; margin-bottom: 1rem; }
+    
     .main {
-        font-size: 0.95rem;  /* smaller text for iPhone */
-        padding: 0.8rem;
+        margin-left: 47%;
+        padding: 0.6rem;
+        font-size: 0.9rem;
+        height: 100vh;         /* keep vertical scroll */
+        overflow-x: hidden;    /* prevent horizontal scroll */
+        overflow-y: auto;      /* enable vertical scroll */
     }
-    .main h2 { font-size: 1.3rem; }
-    hr.hrzl { width: 200px; }
-    .belowfigure { font-size: 0.95rem; }
-    .abovefigure { font-size: 1rem; margin-bottom: 0.8rem; }
+    
+    .main h2 { font-size: 1.2rem; }
+    .subtitle { font-size: 8.5pt; }
+    .subsubtitle { font-size: 7.5pt; }
+    .belowfigure { font-size: 0.9rem; }
+    .abovefigure { font-size: 0.95rem; margin-bottom: 0.6rem; }
 }
