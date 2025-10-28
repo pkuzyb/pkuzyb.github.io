@@ -294,7 +294,7 @@ div.scrollable {
 }
 
 @media only screen and (max-width: 400px) {
-    .sidebar { width: 45%; font-size: 12pt; }
+    .sidebar { width: 50%; font-size: 12pt; }
     .sidebar a { font-size: 8pt; padding: 0.35rem 0.5rem; }
     .name { font-size: 1.2rem; margin-bottom: 1rem; }
     
