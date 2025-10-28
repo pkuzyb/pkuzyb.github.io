@@ -294,25 +294,27 @@ div.scrollable {
 }
 
 @media only screen and (max-width: 400px) {
-    .sidebar { width: 50%; font-size: 12pt; }
+    .sidebar { width: 45%; font-size: 12pt; }
     .sidebar a { font-size: 8pt; padding: 0.35rem 0.5rem; }
     .name { font-size: 1.2rem; margin-bottom: 1rem; }
     
     .main {
         margin-left: 47%;
         padding: 0.6rem;
-        font-size: 0.3rem;
+        font-size: 0.5rem;
         height: 100vh;         /* keep vertical scroll */
         overflow-x: hidden;    /* prevent horizontal scroll */
         overflow-y: auto;      /* enable vertical scroll */
     }
     
     .main h2 { font-size: 1.2rem; }
-    .subtitle { font-size: 8.5pt; }
+    .subtitle { font-size: 8.5pt; } 
+    .intro {
+      font-size: 5rem;
+      }
     .subsubtitle { font-size: 7.5pt; }
     .belowfigure { font-size: 0.9rem; }
     .abovefigure { font-size: 0.95rem; margin-bottom: 0.6rem; }
 }
 
 
-@
