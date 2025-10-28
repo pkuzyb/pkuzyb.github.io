@@ -273,20 +273,55 @@ div.scrollable {
         border-right: none;
         border-bottom: 2px solid #b7d3b2;
         text-align: center;
+        font-size: 14pt; /* slightly smaller for tablets */
+    }
+    .sidebar a {
+        font-size: 14pt;
+        padding: 0.6rem 0.8rem;
+    }
+    .name {
+        font-size: 1.6rem; /* smaller title */
+        margin-bottom: 2rem;
     }
     .main {
         margin-left: 0;
-        padding: 1.5rem;
+        padding: 1rem;
         height: auto;
+        font-size: 1rem; /* slightly smaller main text */
+    }
+    .main h2 {
+        font-size: 1.5rem;
+    }
+    .subtitle {
+        font-size: 1.1rem;
+    }
+    .subsubtitle {
+        font-size: 12pt;
+    }
+    .belowfigure {
+        font-size: 1rem;
+    }
+    .abovefigure {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
     }
 }
 
 @media only screen and (max-width: 400px) {
+    /* iPhone / very small devices */
     .sidebar a {
-        font-size: 7.8pt;
+        font-size: 7.5pt;
         letter-spacing: 0px;
+        padding: 0.4rem 0.6rem;
     }
-    .subsubtitle { font-size: 8.5pt; }
-    .subtitle { font-size: 10pt; }
-    hr.hrzl { width: 240px; }
+    .subsubtitle { font-size: 8pt; line-height: 1.1; }
+    .subtitle { font-size: 9pt; line-height: 1.1; }
+    .main {
+        font-size: 0.95rem;  /* smaller text for iPhone */
+        padding: 0.8rem;
+    }
+    .main h2 { font-size: 1.3rem; }
+    hr.hrzl { width: 200px; }
+    .belowfigure { font-size: 0.95rem; }
+    .abovefigure { font-size: 1rem; margin-bottom: 0.8rem; }
 }
