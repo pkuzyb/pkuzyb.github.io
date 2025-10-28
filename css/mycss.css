@@ -322,6 +322,13 @@ div.scrollable {
     img.ver {
         width: 70%;  
     }	
+    img.spect { max-width: 100%; }
+    img.first_order { max-width: 90%; }
+    img.prosody { max-width: 100%; }
+    img.lexnei { max-width: 85%; }
+    img.voicing { max-width: 95%; }
+    img.jyutping { max-width: 100%; }
+    img.flyer { max-width: 90%; }
 }
 
 
@@ -375,4 +382,11 @@ div.scrollable {
     img.ver {
         width: 70%;  
     }	
+    img.spect { max-width: 100%; }
+    img.first_order { max-width: 90%; }
+    img.prosody { max-width: 100%; }
+    img.lexnei { max-width: 85%; }
+    img.voicing { max-width: 95%; }
+    img.jyutping { max-width: 100%; }
+    img.flyer { max-width: 90%; }
 }
