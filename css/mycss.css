@@ -107,7 +107,8 @@ a:hover {
 =========================== */
 .main {
     margin-left: 380px;
-    overflow-y: auto;
+    overflow-y: auto;   /* vertical scrolling */
+    overflow-x: hidden; /* prevent horizontal scrolling */
     height: 100vh;
     box-sizing: border-box;
     font-size: 1.1rem;
