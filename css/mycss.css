@@ -2,7 +2,7 @@
    General Styles
 =========================== */
 html, body, .container {
-    height: 100%;  /* replaces 100vh for .container */
+    height: 100%;  /* replaces 100% for .container */
 }
 
 body {
@@ -46,7 +46,7 @@ a:hover {
 =========================== */
 .container {
     display: flex;
-    min-height: 100vh;
+    min-height: 100%;
 }
 
 /* ===========================
@@ -55,7 +55,7 @@ a:hover {
 .sidebar {
     background-color: #f2f7f3;
     width: 300px;
-    height: 100vh;
+    height: 100%;
     border-right: 2px solid #b7d3b2;
     font-family: Georgia, serif;
     font-size: 16pt;
@@ -113,7 +113,7 @@ a:hover {
     margin-left: 380px;
     overflow-y: auto;   /* vertical scrolling */
     overflow-x: hidden; /* prevent horizontal scrolling */
-    height: 100vh;
+    height: 100%;
     box-sizing: border-box;
     font-size: 1.1rem;
     margin-right: 2.5rem; 
