@@ -1,6 +1,10 @@
 /* ===========================
    General Styles
 =========================== */
+html, body, .container {
+    height: 100%;  /* replaces 100vh for .container */
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -243,8 +247,10 @@ img.voicing { max-width: 80%; }
 img.jyutping { max-width: 90%; }
 img.flyer { max-width: 70%; }
 img.annot { max-width: 100%; }
-img.hor { max-width: 75%;  }
-img.ver { max-width: 90%; height: 90% }
+img.hor { max-width: 70%;  }
+img.ver {
+    width: 55%;  
+}
 img.icon { display: inline;    margin: auto auto; }
 img.spect { max-width: 70%; }
 img.first_order { max-width: 60%; }
@@ -311,8 +317,7 @@ div.scrollable {
     .intro { font-size: 0.7rem; }
     .belowfigure { font-size: 0.6rem; }
     .abovefigure { font-size: 0.6rem; margin-bottom: 0.5rem; }
-    hr.hrzl { width: 150px; }
-    img.ver { height: 16%; width: 70%; }	
+    hr.hrzl { width: 150px; }	
 }
 
 
@@ -361,6 +366,5 @@ div.scrollable {
     .intro { font-size: 0.7rem; }
     .belowfigure { font-size: 0.5rem; }
     .abovefigure { font-size: 0.5rem; margin-bottom: 0.5rem; }
-    hr.hrzl { width: 150px; }
-    img.ver { height: 16%; width: 70%; }	
+    hr.hrzl { width: 150px; }	
 }
