@@ -236,7 +236,7 @@ hr.projects-hr {
 img {
     display: block;
     margin: auto auto;
-    max-width: 90%;
+    max-width: 100%;
     height: auto;
     border-radius: 8px;
 }
@@ -318,6 +318,10 @@ div.scrollable {
     .belowfigure { font-size: 0.6rem; }
     .abovefigure { font-size: 0.6rem; margin-bottom: 0.5rem; }
     hr.hrzl { width: 150px; }	
+    img.hor { max-width: 100%;  }
+    img.ver {
+        width: 70%;  
+    }	
 }
 
 
@@ -366,5 +370,9 @@ div.scrollable {
     .intro { font-size: 0.7rem; }
     .belowfigure { font-size: 0.5rem; }
     .abovefigure { font-size: 0.5rem; margin-bottom: 0.5rem; }
-    hr.hrzl { width: 150px; }	
+    hr.hrzl { width: 150px; }
+    img.hor { max-width: 100%;  }
+    img.ver {
+        width: 70%;  
+    }	
 }
