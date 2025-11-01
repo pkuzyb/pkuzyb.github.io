@@ -118,7 +118,7 @@ a:hover {
     font-size: 1.1rem;
     margin-right: 0.5rem;
     text-align: justify;
-    padding-right: 1.2rem; /* ✅ Add this line for space from scrollbar */
+    padding-right: 1.2rem; 
     -webkit-overflow-scrolling: touch;
 }
 
