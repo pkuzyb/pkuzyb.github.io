@@ -110,13 +110,13 @@ a:hover {
    Main Content
 =========================== */
 .main {
-    margin-left: 380px;
+    margin-left: 350px;
     overflow-y: auto;
     overflow-x: hidden;
     height: 100%;
     box-sizing: border-box;
     font-size: 1.1rem;
-    margin-right: 2.5rem;
+    margin-right: 0.5rem;
     text-align: justify;
     padding-right: 1.2rem; /* ✅ Add this line for space from scrollbar */
     -webkit-overflow-scrolling: touch;
