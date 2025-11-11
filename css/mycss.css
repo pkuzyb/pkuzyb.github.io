@@ -63,7 +63,7 @@ a:hover {
     letter-spacing: 0.5px;
     line-height: 0em;
     position: fixed;
-   padding-left: 0.8rem;  /* added left padding */
+    padding-left: 0.8rem;  /* added left padding */
 }
 
 /* Sidebar Name */
@@ -73,7 +73,7 @@ a:hover {
     color: #2b4f2c;
     letter-spacing: 0.1px;         /* tighter spacing */
     word-spacing: 0px;             /* corrected */
-    margin-bottom: 3rem;
+    margin-bottom: 5rem;
     margin-top:2rem;
     text-align: center;
     font-family: 'Pacifico', cursive; /* artistic cursive font */
@@ -276,6 +276,9 @@ img.first_order { max-width: 60%; }
 
 @media only screen and (max-width: 800px) {
     /* Sidebar */
+    .name {
+    margin-top:2.1rem;
+    }
     .sidebar {
         width: 30%;          /* narrower sidebar */
         font-size: 8pt;      
@@ -333,6 +336,9 @@ img.first_order { max-width: 60%; }
 
 
 @media only screen and (max-width: 400px) {
+    .name {
+    margin-top:2.1rem;
+    }
     .sidebar {
         width: 30%;
         font-size: 8pt;      /* smaller sidebar text */
