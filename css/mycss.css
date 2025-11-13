@@ -231,6 +231,23 @@ hr.projects-hr {
 }
 
 /* ===========================
+   Video Styling
+=========================== */
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.video-container video {
+  width: 210px;                 /* default desktop width */
+  aspect-ratio: 9 / 16;         /* vertical video */
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.15);
+}
+
+/* ===========================
    Images
 =========================== */
 img {
@@ -332,6 +349,10 @@ img.first_order { max-width: 60%; }
     img.voicing { max-width: 95%; }
     img.jyutping { max-width: 100%; }
     img.flyer { max-width: 90%; }
+  .video-container video {
+    width: 200px;               /* slightly smaller on tablets */
+    box-shadow: 0 0 6px rgba(0,0,0,0.15);
+  }
 }
 
 
@@ -395,4 +416,9 @@ img.first_order { max-width: 60%; }
     img.voicing { max-width: 95%; }
     img.jyutping { max-width: 100%; }
     img.flyer { max-width: 90%; }
+  .video-container video {
+    width: 150px;               /* much smaller for iPhone view */
+    border-radius: 10px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.15);
+  }
 }
