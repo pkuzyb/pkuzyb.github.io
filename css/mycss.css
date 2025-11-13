@@ -350,7 +350,7 @@ img.first_order { max-width: 60%; }
     img.jyutping { max-width: 100%; }
     img.flyer { max-width: 90%; }
   .video-container video {
-    width: 200px;               /* slightly smaller on tablets */
+    width: 140px;               /* slightly smaller on tablets */
     box-shadow: 0 0 6px rgba(0,0,0,0.15);
   }
 }
@@ -417,7 +417,7 @@ img.first_order { max-width: 60%; }
     img.jyutping { max-width: 100%; }
     img.flyer { max-width: 90%; }
   .video-container video {
-    width: 150px;               /* much smaller for iPhone view */
+    width: 100px;               /* much smaller for iPhone view */
     border-radius: 10px;
     box-shadow: 0 0 4px rgba(0,0,0,0.15);
   }
