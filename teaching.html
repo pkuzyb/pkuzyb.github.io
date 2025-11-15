@@ -10,6 +10,7 @@
   <link href="./css/mycss.css" rel="stylesheet" type="text/css" />
  </head>
 
+
 <body>
   <div class="container">
     <nav class="sidebar">
@@ -29,7 +30,7 @@
       <div class="scrollable">
               <p class="subtitle"><b>Indigenous Language Toolkit </b></p>
 		<div class="video-container">
-  		<video controls playsinline poster="./pics/nuosu_mge-poster.jpg">
+  		<video id = "myVideo" controls playsinline poster="./pics/nuosu_mge-poster.jpg">
    		 <source src="./pics/nuosu_mge.mp4" type="video/mp4">
    		 Your browser does not support the MP4 format.
   		  <a href="./pics/nuosu_mge.mp4">Download the video</a>.
@@ -62,5 +63,17 @@
        <hr class="projects-hr" />
     </main>
   </div>
+  
+    <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const vid = document.getElementById("myVideo");
+      vid.addEventListener("ended", () => {
+        vid.pause();
+        vid.currentTime = 0;
+        vid.load();
+      });
+    });
+  </script>
+  
 </body>
 </html>
