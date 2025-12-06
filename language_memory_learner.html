@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LinguaEcho</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body class="bg-gray-50">
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState, useEffect, useRef } = React;
+
+const ONE_DAY = 24 * 60 * 60 * 1000;
+const INTERVALS = [0, 1, 7, 30, 365];
+const getNextReviewDate = (level) => Date.now() + (INTERVALS[level] ?? 1) * ONE_DAY;
+const formatDate = (timestamp) => timestamp ? new Date(timestamp).toLocaleString() : "";
+
+// Convert Float32Array to WAV Blob
+function encodeWAV(samples, sampleRate = 16000) {
+  const buffer = new ArrayBuffer(44 + samples.length * 2);
+  const view = new DataView(buffer);
+
+  function writeString(view, offset, string) {
+    for (let i = 0; i < string.length; i++) view.setUint8(offset + i, string.charCodeAt(i));
+  }
+
+  function floatTo16BitPCM(output, offset, input){
+    for (let i = 0; i < input.length; i++, offset+=2){
+      let s = Math.max(-1, Math.min(1, input[i]));
+      output.setInt16(offset, s < 0 ? s * 0x8000 : s * 0x7FFF, true);
+    }
+  }
+
+  writeString(view, 0, 'RIFF');
+  view.setUint32(4, 36 + samples.length * 2, true);
+  writeString(view, 8, 'WAVE');
+  writeString(view, 12, 'fmt ');
+  view.setUint32(16, 16, true);
+  view.setUint16(20, 1, true);
+  view.setUint16(22, 1, true);
+  view.setUint32(24, sampleRate, true);
+  view.setUint32(28, sampleRate * 2, true);
+  view.setUint16(32, 2, true);
+  view.setUint16(34, 16, true);
+  writeString(view, 36, 'data');
+  view.setUint32(40, samples.length * 2, true);
+
+  floatTo16BitPCM(view, 44, samples);
+  return new Blob([view], { type: 'audio/wav' });
+}
+
+function MemoryFlowApp() {
+  const [items, setItems] = useState(() => JSON.parse(localStorage.getItem("vocab_items")||"[]"));
+  const [activeTab, setActiveTab] = useState("add");
+  const [inputText, setInputText] = useState("");
+  const [inputTranslation, setInputTranslation] = useState("");
+  const [reviewQueue, setReviewQueue] = useState([]);
+  const [isFlipped, setIsFlipped] = useState(false);
+  const [recording, setRecording] = useState(false);
+  const [currentAudioURL, setCurrentAudioURL] = useState(null);
+
+  const audioContextRef = useRef(null);
+  const processorRef = useRef(null);
+  const streamRef = useRef(null);
+  const samplesRef = useRef([]);
+  const audioRef = useRef(null); // for auto-playing review audio
+
+  // Initialize microphone
+  useEffect(() => {
+    async function initMic() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        streamRef.current = stream;
+        audioContextRef.current = new AudioContext({ sampleRate: 16000 });
+      } catch (err) {
+        alert("Microphone access denied or unavailable.");
+        console.error(err);
+      }
+    }
+    initMic();
+  }, []);
+
+  // Save items to localStorage
+  useEffect(() => { localStorage.setItem("vocab_items", JSON.stringify(items)); }, [items]);
+
+  // Update review queue
+  useEffect(() => {
+    if (activeTab === "review") {
+      const now = Date.now();
+      setReviewQueue(items.filter(i => !i.mastered && i.nextReview <= now));
+      setIsFlipped(false);
+    }
+  }, [items, activeTab]);
+
+  // Auto-play audio when review card changes
+  useEffect(() => {
+    if (reviewQueue.length === 0) return;
+    const currentItem = reviewQueue[0];
+    if (currentItem.audio) {
+      if (audioRef.current) audioRef.current.pause();
+      audioRef.current = new Audio(currentItem.audio);
+      audioRef.current.play().catch(err => console.log("Audio autoplay blocked", err));
+    }
+  }, [reviewQueue]);
+
+  const addItem = (e) => {
+    e.preventDefault();
+    if (!currentAudioURL) return alert("Please record audio before adding an item.");
+    if (!inputText.trim()) return;
+
+    const newItem = {
+      id: Date.now().toString(),
+      text: inputText.trim(),
+      translation: inputTranslation.trim(),
+      level: 0,
+      nextReview: Date.now(),
+      mastered: false,
+      audio: currentAudioURL
+    };
+    setItems(prev => [newItem, ...prev]);
+    setInputText(""); 
+    setInputTranslation(""); 
+    setCurrentAudioURL(null);
+  };
+
+  const toggleRecording = async () => {
+    if (recording) {
+      if (processorRef.current) processorRef.current.disconnect();
+      if (audioContextRef.current) await audioContextRef.current.close();
+
+      const wavBlob = encodeWAV(samplesRef.current);
+      const reader = new FileReader();
+      reader.onloadend = () => setCurrentAudioURL(reader.result);
+      reader.readAsDataURL(wavBlob);
+
+      processorRef.current = null;
+      samplesRef.current = [];
+      setRecording(false);
+    } else {
+      if (!streamRef.current) return alert("Microphone not available.");
+
+      setCurrentAudioURL(null);
+      samplesRef.current = [];
+
+      audioContextRef.current = new AudioContext({ sampleRate: 16000 });
+      const source = audioContextRef.current.createMediaStreamSource(streamRef.current);
+      const processor = audioContextRef.current.createScriptProcessor(4096, 1, 1);
+
+      processor.onaudioprocess = (e) => {
+        const input = e.inputBuffer.getChannelData(0);
+        samplesRef.current.push(...input);
+      };
+
+      source.connect(processor);
+      processor.connect(audioContextRef.current.destination);
+      processorRef.current = processor;
+
+      setRecording(true);
+    }
+  };
+
+  const handleReviewResult = (remembered) => {
+    const current = reviewQueue[0];
+    if (!current) return;
+    let newLevel = remembered ? current.level + 1 : 0;
+    let mastered = false;
+    if (newLevel >= INTERVALS.length - 1) { newLevel = INTERVALS.length - 1; mastered = true; }
+    const updated = { ...current, level: newLevel, nextReview: getNextReviewDate(newLevel), mastered };
+    setItems(prev => prev.map(i => i.id === current.id ? updated : i));
+    setReviewQueue(prev => prev.slice(1));
+  };
+
+  const deleteItem = (id) => setItems(prev => prev.filter(i => i.id !== id));
+
+  const exportAll = async () => {
+    if (!items.length) { alert("No items to export."); return; }
+    const ws = XLSX.utils.json_to_sheet(items.map(i=>({
+      id:i.id,text:i.text,translation:i.translation,level:i.level,nextReview:i.nextReview,mastered:i.mastered,hasAudio:!!i.audio
+    })));
+    const wb = XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb, ws, "Vocab"); XLSX.writeFile(wb, "vocab_items.xlsx");
+
+    const audioItems = items.filter(i => i.audio);
+    if (audioItems.length){
+      const zip = new JSZip();
+      audioItems.forEach(i=>{
+        const byteString = atob(i.audio.split(',')[1]);
+        const ab = new ArrayBuffer(byteString.length);
+        const ia = new Uint8Array(ab);
+        for(let j=0;j<byteString.length;j++) ia[j]=byteString.charCodeAt(j);
+        zip.file(`${i.id}.wav`, new Blob([ab], {type:'audio/wav'}));
+      });
+      const content = await zip.generateAsync({type:'blob'});
+      const url = URL.createObjectURL(content);
+      const a = document.createElement("a"); a.href = url; a.download="audio_files.zip"; a.click();
+      URL.revokeObjectURL(url);
+    }
+  };
+
+  const importAll = async (e) => {
+    const files = Array.from(e.target.files);
+    if (!files.length) return;
+
+    for (const file of files){
+      if(file.name.endsWith(".xlsx")||file.name.endsWith(".xls")){
+        const reader = new FileReader();
+        reader.onload = evt=>{
+          const data = new Uint8Array(evt.target.result);
+          const wb = XLSX.read(data,{type:"array"});
+          const sheet = wb.Sheets[wb.SheetNames[0]];
+          const json = XLSX.utils.sheet_to_json(sheet);
+          setItems(json.map((i,idx)=>({id:i.id?.toString()||Date.now().toString()+idx,...i})));
+        };
+        reader.readAsArrayBuffer(file);
+      } else if(file.name.endsWith(".wav")){
+        const reader = new FileReader();
+        reader.onload = () => {
+          const id = file.name.replace(/\.wav$/i,'');
+          setItems(prev=>{
+            const index = prev.findIndex(i=>i.id===id);
+            if(index>=0){ prev[index].audio=reader.result; return [...prev]; }
+            else { alert(`No matching item for audio file: ${file.name}`); return prev; }
+          });
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+  };
+
+  return (
+    <div className="max-w-md mx-auto bg-white min-h-screen shadow">
+      <header className="bg-gray-900 text-white p-4 text-center font-bold">LinguaMemoryFlow WAV</header>
+
+      <div className="flex border-b">
+        <button onClick={()=>setActiveTab("review")} className={`flex-1 p-3 ${activeTab==="review"?"bg-blue-100":""}`}>Review</button>
+        <button onClick={()=>setActiveTab("add")} className={`flex-1 p-3 ${activeTab==="add"?"bg-blue-100":""}`}>Add</button>
+        <button onClick={()=>setActiveTab("notebook")} className={`flex-1 p-3 ${activeTab==="notebook"?"bg-blue-100":""}`}>Notebook</button>
+      </div>
+
+      {activeTab==="add" && (
+        <form onSubmit={addItem} className="p-4 space-y-3">
+          <textarea className="w-full border p-2" placeholder="Enter word or sentence" value={inputText} onChange={e=>setInputText(e.target.value)} />
+          <textarea className="w-full border p-2" placeholder="Enter translation" value={inputTranslation} onChange={e=>setInputTranslation(e.target.value)} />
+          <div className="flex gap-2">
+            <button type="button" onClick={toggleRecording} className={`flex-1 p-2 rounded ${recording?'bg-red-500 text-white':'bg-blue-500 text-white'}`}>{recording?'Stop Recording':'Record Audio'}</button>
+            <button type="button" onClick={()=>currentAudioURL && new Audio(currentAudioURL).play()} className="flex-1 p-2 bg-green-500 text-white rounded" disabled={!currentAudioURL}>Play Audio</button>
+          </div>
+          <button className="w-full bg-blue-600 text-white p-2 rounded">Add</button>
+        </form>
+      )}
+
+      {activeTab==="review" && (
+        <div className="p-4 text-center">
+          {reviewQueue.length===0 ? <div>🎉 Nothing to review!</div> : (
+            <div>
+              <div onClick={()=>setIsFlipped(!isFlipped)} className="border p-6 rounded text-xl cursor-pointer mb-4">
+                {isFlipped ? reviewQueue[0].translation || "No translation" : reviewQueue[0].text}
+              </div>
+              <div className="flex gap-4">
+                <button onClick={()=>handleReviewResult(false)} className="flex-1 bg-red-200 p-3 rounded">Didn't remember</button>
+                <button onClick={()=>handleReviewResult(true)} className="flex-1 bg-green-200 p-3 rounded">Remembered</button>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {activeTab==="notebook" && (
+        <div className="p-4 space-y-2">
+          <div className="flex gap-2 mb-2 flex-wrap">
+            <button onClick={exportAll} className="bg-blue-500 text-white px-3 py-1 rounded">Export Excel & Audio</button>
+            <input type="file" accept=".xlsx,.xls,.wav" id="import-all" onChange={importAll} className="hidden" multiple/>
+            <button onClick={()=>document.getElementById('import-all').click()} className="bg-blue-500 text-white px-3 py-1 rounded">Import Excel or Audio</button>
+          </div>
+
+          {items.map(item => (
+            <div key={item.id} className="border p-2 rounded flex justify-between items-center">
+              <div>
+                <div className="font-bold flex items-center gap-1">{item.text} {item.mastered && <span className="text-green-600">✔️</span>}</div>
+                <div className="text-gray-600 text-sm">{item.translation}</div>
+                <div className="text-gray-500 text-xs">Next Review: {item.nextReview ? formatDate(item.nextReview) : "Mastered"}</div>
+              </div>
+              <div className="flex gap-1">
+                {item.audio && <button onClick={()=>new Audio(item.audio).play()} className="bg-green-500 text-white px-2 py-1 rounded">Play</button>}
+                <button onClick={()=>deleteItem(item.id)} className="bg-red-500 text-white px-2 py-1 rounded">Delete</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+ReactDOM.render(<MemoryFlowApp />, document.getElementById("root"));
+</script>
+</body>
+</html>
