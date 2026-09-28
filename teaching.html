@@ -47,20 +47,24 @@
               <p class="subtitle"><b>Courses</b></p>
 <p class="subsubtitle">  CSD 303: Speech Acoustics and Perception </p>
 <p class="subsubsubtitle">  Intro:  </p>
-          <div style="display:flex; justify-content:center; align-items:center; gap:1rem; flex-wrap:wrap;">
+          <div class="trailer-row">
             <span class="alert" style="margin:0;">[trailer: listen!]</span>
-            <audio id="trailerAudio" controls preload="auto">
-              <source src="./sounds/trailer.wav" type="audio/wav">
-              Your browser does not support the audio element.
-            </audio>
+            <div class="trailer-slot">
+              <button class="trailer-btn" type="button" aria-label="Play trailer"><svg width="12" height="9" viewBox="0 0 12 9" xmlns="http://www.w3.org/2000/svg"><polygon points="2,0.5 11,4.5 2,8.5" fill="#FFFFFF"/></svg></button>
+              <div class="aiu-bar" style="display:block; width:min(180px, 42vw);"><div class="aiu-fill"></div></div>
+              <audio id="trailerAudio" preload="auto">
+                <source src="./sounds/trailer.wav" type="audio/wav">
+                Your browser does not support the audio element.
+              </audio>
+            </div>
           </div>
 
           <!-- Yubin's vocal tract (cartoon) with Alvin Lucier comic to its left -->
 <!-- Yubin's vocal tract (cartoon) with Alvin Lucier comic to its left -->
 <p class="subsubsubtitle">  Resonance:  </p>
 <div class="reson-row" style="display:flex; justify-content:center; align-items:center; gap: 5.5rem; flex-wrap:nowrap;">
-  <img class="reson-img" src="./pics/alvin_lucier_comic.png" alt="Alvin Lucier is sitting in a room" style="max-height: 300px; height: auto; width: auto; max-width: 48%; margin: 0;" />
-  <img class="reson-img reson-yubin" src="./pics/vocal_tract_yubin.png" alt="Yubin is sitting in your vocal tract" style="max-height: 350px; height: auto; width: auto; max-width: 48%; margin: 0;" />
+  <img class="reson-img" src="./pics/alvin_lucier_comic.png" alt="Alvin Lucier is sitting in a room" style="max-height: 550px; height: auto; width: auto; max-width: 50%; margin: 0;" />
+  <img class="reson-img reson-yubin" src="./pics/vocal_tract_yubin.png" alt="Yubin is sitting in your vocal tract" style="max-height: 300px; height: auto; width: auto; max-width: 48%; margin: 0;" />
 </div>
           <p class="belowfigure">
             Alvin Lucier is sitting in a room
@@ -70,22 +74,27 @@
             but Yubin is sitting in your vocal tract.
             <br>What happens when Yubin's vocal tract listens to his recorded speech again, again and again?
           </p>
-          <!-- a i u vocal-tract shapes with the three audio players aligned beneath -->
-          <center><img src="./pics/vocal_tract_aiu.png" alt="a /i/ u vocal tract shapes" style="width: 85%;" /></center>
-          <div style="display:grid; grid-template-columns: repeat(3, 1fr); width:85%; margin:0.6rem auto 1rem auto; gap:0.8rem;">
-            <div style="text-align:center;">
-              <div style="font-family:'Times New Roman', Georgia, serif; font-size:1.15rem; color:#222; margin-bottom:0.2rem;">/a/</div>
-              <audio controls preload="none" src="./sounds/lucier_a.wav" style="width:100%; max-width:280px;"></audio>
+          <!-- a /i/ u vocal-tract shapes: labels baked into the picture; play buttons aligned under each label (YouTube-button size, semi-transparent) -->
+          <center>
+            <div class="aiu-wrap">
+              <img src="./pics/vocal_tract_aiu.png" alt="a /i/ u vocal tract shapes" style="width:100%;" />
+              <div class="aiu-slot" style="left:22%;">
+                <button class="aiu-btn" type="button" aria-label="Play /a/"><svg width="12" height="9" viewBox="0 0 12 9" xmlns="http://www.w3.org/2000/svg"><polygon points="2,0.5 11,4.5 2,8.5" fill="#FFFFFF"/></svg></button>
+                <div class="aiu-bar"><div class="aiu-fill"></div></div>
+                <audio class="aiu-audio" preload="none" src="./sounds/lucier_a.wav"></audio>
+              </div>
+              <div class="aiu-slot" style="left:52%;">
+                <button class="aiu-btn" type="button" aria-label="Play /i/"><svg width="12" height="9" viewBox="0 0 12 9" xmlns="http://www.w3.org/2000/svg"><polygon points="2,0.5 11,4.5 2,8.5" fill="#FFFFFF"/></svg></button>
+                <div class="aiu-bar"><div class="aiu-fill"></div></div>
+                <audio class="aiu-audio" preload="none" src="./sounds/lucier_i.wav"></audio>
+              </div>
+              <div class="aiu-slot" style="left:85%;">
+                <button class="aiu-btn" type="button" aria-label="Play /u/"><svg width="12" height="9" viewBox="0 0 12 9" xmlns="http://www.w3.org/2000/svg"><polygon points="2,0.5 11,4.5 2,8.5" fill="#FFFFFF"/></svg></button>
+                <div class="aiu-bar"><div class="aiu-fill"></div></div>
+                <audio class="aiu-audio" preload="none" src="./sounds/lucier_u.wav"></audio>
+              </div>
             </div>
-            <div style="text-align:center;">
-              <div style="font-family:'Times New Roman', Georgia, serif; font-size:1.15rem; color:#222; margin-bottom:0.2rem;">/i/</div>
-              <audio controls preload="none" src="./sounds/lucier_i.wav" style="width:100%; max-width:280px;"></audio>
-            </div>
-            <div style="text-align:center;">
-              <div style="font-family:'Times New Roman', Georgia, serif; font-size:1.15rem; color:#222; margin-bottom:0.2rem;">/u/</div>
-              <audio controls preload="none" src="./sounds/lucier_u.wav" style="width:100%; max-width:280px;"></audio>
-            </div>
-          </div>
+          </center>
 
       <p class="subsubtitle">  Ling 410: Speaker Identification </p>
           <p style="text-indent: 2em;">  Acoustic Analysis of Prosody: Linguistic and Forensic Applications  [<a href="./documents/acoustic_analysis_of_prosody_oct2.pdf">lecture</a>, <a href="./documents/voice_quality_assignment.pdf"> lab</a>, <a href="./documents/Gujarati.zip">audio</a>] </p>
@@ -104,8 +113,62 @@
 
   <script>
     window.addEventListener("DOMContentLoaded", () => {
-      const a = document.getElementById("trailerAudio");
-      if (a) a.volume = 0.5; // comfortable playback volume
+      // trailer audio: round transparent-red button + an always-visible minimal progress bar
+      const tSlot = document.querySelector(".trailer-slot");
+      if (tSlot) {
+        const tBtn   = tSlot.querySelector(".trailer-btn");
+        const tAudio = tSlot.querySelector("#trailerAudio");
+        const tBar   = tSlot.querySelector(".aiu-bar");
+        const tFill  = tSlot.querySelector(".aiu-fill");
+        if (tAudio) tAudio.volume = 0.5; // comfortable playback volume
+        tBtn.addEventListener("click", () => {
+          if (tAudio.paused) { tAudio.play().catch(() => {}); }
+          else { tAudio.pause(); }
+        });
+        tAudio.addEventListener("timeupdate", () => {
+          if (tAudio.duration) tFill.style.width = (100 * tAudio.currentTime / tAudio.duration) + "%";
+        });
+        tAudio.addEventListener("ended", () => { tFill.style.width = "0%"; });
+        tBar.addEventListener("click", (e) => {
+          const r = tBar.getBoundingClientRect();
+          const p = (e.clientX - r.left) / r.width;
+          if (tAudio.duration) tAudio.currentTime = p * tAudio.duration;
+        });
+      }
+
+      // a /i/ u players: a minimal custom progress bar to the right of the green button.
+      // It shows on hover or while playing, and hides again when paused and the mouse leaves.
+      document.querySelectorAll(".aiu-slot").forEach((slot) => {
+        const btn   = slot.querySelector(".aiu-btn");
+        const audio = slot.querySelector(".aiu-audio");
+        const bar   = slot.querySelector(".aiu-bar");
+        const fill  = slot.querySelector(".aiu-fill");
+
+        const show = () => { bar.style.display = "block"; };
+        const maybeHide = () => { if (audio.paused) bar.style.display = "none"; };
+
+        slot.addEventListener("mouseenter", show);
+        slot.addEventListener("mouseleave", maybeHide);
+
+        // green button plays / pauses
+        btn.addEventListener("click", () => {
+          if (audio.paused) { audio.play().catch(() => {}); show(); }
+          else { audio.pause(); }
+        });
+
+        // update the fill while playing
+        audio.addEventListener("timeupdate", () => {
+          if (audio.duration) fill.style.width = (100 * audio.currentTime / audio.duration) + "%";
+        });
+        audio.addEventListener("ended", () => { fill.style.width = "0%"; maybeHide(); });
+
+        // click on the bar to seek
+        bar.addEventListener("click", (e) => {
+          const r = bar.getBoundingClientRect();
+          const p = (e.clientX - r.left) / r.width;
+          if (audio.duration) audio.currentTime = p * audio.duration;
+        });
+      });
     });
   </script>
 
