@@ -285,7 +285,7 @@ audio {
   align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
-  margin-left: 13%;
+  margin-left: 25%;
 }
 
 .subsubtitle {
@@ -414,8 +414,8 @@ img.first_order { max-width: 60%; }
     /* Hide the desktop sidebar — phone shows only the right panel */
     .sidebar { display: none; }
 
-    /* Phone: trailer row just aligns left (no 16% offset) */
-    .trailer-row { margin-left: 0; }
+    /* Phone: trailer row aligns left at 15% */
+    .trailer-row { margin-left: 15%; }
 
     /* Top bar with menu button */
     .topbar {
