@@ -230,11 +230,11 @@ audio {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 30px;             /* same size as the YouTube button */
-  height: 21px;
+  width: 34px;             /* same round size as the trailer button */
+  height: 34px;
   padding: 0;
   border: none;
-  border-radius: 5px;
+  border-radius: 50%;      /* circle, like the trailer button */
   background: rgba(59, 127, 60, 0.5);   /* semi-transparent green so it blends with the page */
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0,0,0,0.25);
