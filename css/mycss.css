@@ -235,12 +235,12 @@ audio {
   padding: 0;
   border: none;
   border-radius: 50%;      /* circle, like the trailer button */
-  background: rgba(59, 127, 60, 0.5);   /* semi-transparent green so it blends with the page */
+  background: rgb(150, 192, 152);   /* soft light green, not harsh */
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0,0,0,0.25);
   transition: background 0.2s ease;
 }
-.aiu-btn:hover { background: rgba(43, 79, 44, 0.72); }
+.aiu-btn:hover { background: rgb(120, 166, 122); }
 .aiu-audio { display: none; }            /* hidden native element — we draw our own minimal bar */
 .aiu-bar {
   display: none;                         /* shown on hover or while playing */
@@ -272,12 +272,12 @@ audio {
   padding: 0;
   border: none;
   border-radius: 50%;
-  background: rgba(200, 70, 70, 0.45);   /* transparent light red */
+  background: rgb(228, 134, 134);   /* solid, soft light red — not transparent, not harsh */
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   transition: background 0.2s ease;
 }
-.trailer-btn:hover { background: rgba(200, 70, 70, 0.68); }
+.trailer-btn:hover { background: rgb(212, 104, 104); }
 /* trailer row: on the web it sits left-aligned at 16% from the content edge */
 .trailer-row {
   display: flex;
