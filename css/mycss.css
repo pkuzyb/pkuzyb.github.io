@@ -386,9 +386,9 @@ img.voicing { max-width: 80%; }
 img.jyutping { max-width: 90%; }
 img.flyer { max-width: 70%; }
 img.annot { max-width: 100%; }
-img.hor { max-width: 70%;  }
+img.hor { max-width: 57%;  }
 img.ver {
-    width: 55%;  
+    width:38%;  
 }
 img.icon { display: inline; margin: auto auto; }
 img.spect { max-width: 70%; }
@@ -511,10 +511,10 @@ img.first_order { max-width: 60%; }
     .subsubtitle::before { width: 6px; height: 6px; }
 
     /* Images fill more of the small screen */
-    img.ver { width: 80%; }
+    img.ver { width: 62%; }
     img.hor,
     img.prosody, img.lexnei, img.voicing,
-    img.jyutping, img.spect, img.first_order, img.annot { max-width: 100%; }
+    img.jyutping, img.spect, img.first_order, img.annot { max-width: 85%; }
 
     /* Resonance pair: force tight vertical spacing on mobile, overriding inline style attributes */
     .reson-row { 
